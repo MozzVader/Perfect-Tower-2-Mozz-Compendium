@@ -117,33 +117,37 @@
       overflow-y: auto; /* scroll interno si el contenido del sidebar crece */
     }
 
-    /* ─── Menú desplegable CSS-only con <details> / <summary> ───────────────
-       Técnica:
-         · <details> maneja el estado open/close de forma nativa (sin JS)
-         · <summary> es el botón visible; al hacer click el browser
-           añade/quita el atributo [open] en el <details> padre
-         · Los submenús se revelan con max-height + opacity animados
-           usando la transición en .nav-sub
-         · El estado "activo" se logra con radio inputs ocultos:
-           al seleccionar uno, su label hermano recibe el estilo via
-           :checked + label (selector de hermano adyacente)
+    /* ─── Menú desplegable CSS-only con checkboxes ───────────────────────────
+       Por qué no <details>:
+         <details> usa display:none en el contenido cerrado → el elemento
+         no existe en el flujo visual → las transiciones CSS nunca se
+         ejecutan porque no hay nada que animar.
+
+       Solución: checkbox oculto + label como botón.
+         · El contenido (.nav-sub) SIEMPRE está en el DOM
+         · Cuando el checkbox está :checked, se expande con transición real
+         · Un segundo grupo de radio inputs maneja el ítem activo
     ──────────────────────────────────────────────────────────────────────── */
 
-    /* Contenedor de cada ítem de menú */
     .nav-item {
       margin-bottom: 4px;
     }
 
-    /* Quitamos el marcador nativo del <details> */
-    .nav-item summary {
-      list-style: none;
-    }
-    .nav-item summary::-webkit-details-marker {
-      display: none;
+    /* Checkbox toggle — oculto visualmente, siempre en el DOM */
+    .nav-toggle {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
     }
 
-    /* Botón principal (summary) */
+    /* Label = botón principal del menú */
     .nav-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
       width: 100%;
       padding: 12px 16px;
       border-radius: 0.375rem;
@@ -153,59 +157,62 @@
       font-weight: 500;
       font-size: 0.95rem;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      transition: background-color 0.25s ease;
       user-select: none;
+      transition: background-color 0.25s ease;
     }
 
     .nav-summary:hover {
       background-color: rgba(255, 255, 255, 0.15);
     }
 
-    /* Flecha indicadora — rota con CSS cuando details está [open] */
+    /* Flecha: rota cuando el checkbox está checked */
     .nav-arrow {
       display: inline-block;
       font-style: normal;
       font-size: 0.7rem;
       opacity: 0.7;
-      transition: transform 0.25s ease;
+      transition: transform 0.3s ease;
       flex-shrink: 0;
     }
 
-    .nav-item[open] .nav-arrow {
+    .nav-toggle:checked ~ .nav-summary .nav-arrow {
       transform: rotate(180deg);
     }
 
-    /* Highlight del summary cuando el details está abierto */
-    .nav-item[open] > .nav-summary {
+    /* Highlight del label cuando está abierto */
+    .nav-toggle:checked ~ .nav-summary {
       background-color: rgba(255, 255, 255, 0.15);
       font-weight: 600;
     }
 
-    /* Contenedor de submenús — animación de apertura con max-height */
+    /* ── Submenú: animado con @keyframes ─────────────────────────────────── */
+
+    @keyframes slideDown {
+      from { max-height: 0;     opacity: 0; transform: translateY(-6px); }
+      to   { max-height: 200px; opacity: 1; transform: translateY(0);    }
+    }
+
+    @keyframes slideUp {
+      from { max-height: 200px; opacity: 1; transform: translateY(0);    }
+      to   { max-height: 0;     opacity: 0; transform: translateY(-6px); }
+    }
+
     .nav-sub {
       overflow: hidden;
       max-height: 0;
       opacity: 0;
-      transition:
-        max-height 0.3s ease,
-        opacity    0.25s ease;
+      animation: slideUp 0.3s ease forwards;
     }
 
-    /* Cuando details tiene el atributo [open], expandimos */
-    .nav-item[open] .nav-sub {
-      max-height: 200px; /* valor mayor que el alto real; la transición lo anima */
-      opacity: 1;
+    .nav-sub-inner {
+      padding-bottom: 4px;
     }
 
-    /* ─── Radio inputs ocultos para estado activo CSS-only ────────────────
-       Cada subítem tiene un <input type="radio"> oculto y un <label>.
-       Al hacer click en el label se marca el radio → usamos :checked
-       para aplicar el estilo activo sin JavaScript.
-    ──────────────────────────────────────────────────────────────────────── */
+    .nav-toggle:checked ~ .nav-sub {
+      animation: slideDown 0.35s ease forwards;
+    }
+
+    /* ── Radio inputs para estado activo ─────────────────────────────────── */
     .nav-radio {
       position: absolute;
       opacity: 0;
@@ -214,7 +221,6 @@
       pointer-events: none;
     }
 
-    /* Subítem: el label actúa como botón */
     .nav-sub-label {
       display: block;
       padding: 9px 16px 9px 32px;
@@ -229,7 +235,6 @@
       position: relative;
     }
 
-    /* Punto decorativo antes del texto */
     .nav-sub-label::before {
       content: "·";
       position: absolute;
@@ -242,7 +247,6 @@
       color: white;
     }
 
-    /* Estado activo: cuando el radio está checked, el label siguiente se resalta */
     .nav-radio:checked + .nav-sub-label {
       background-color: rgba(255, 255, 255, 0.22);
       color: white;
@@ -343,56 +347,62 @@
   -->
   <aside class="sidebar" aria-label="Navegación principal">
 
-    <details class="nav-item">
-      <summary class="nav-summary">
+    <!-- Dashboard -->
+    <div class="nav-item">
+      <input class="nav-toggle" type="checkbox" id="toggle-1">
+      <label class="nav-summary" for="toggle-1">
         Dashboard
         <i class="nav-arrow">▼</i>
-      </summary>
+      </label>
       <div class="nav-sub">
-        <input class="nav-radio" type="radio" name="nav" id="nav-1-1">
-        <label class="nav-sub-label" for="nav-1-1">Resumen</label>
-
-        <input class="nav-radio" type="radio" name="nav" id="nav-1-2">
-        <label class="nav-sub-label" for="nav-1-2">Actividad reciente</label>
-
-        <input class="nav-radio" type="radio" name="nav" id="nav-1-3">
-        <label class="nav-sub-label" for="nav-1-3">Notificaciones</label>
+        <div class="nav-sub-inner">
+          <input class="nav-radio" type="radio" name="nav" id="nav-1-1">
+          <label class="nav-sub-label" for="nav-1-1">Resumen</label>
+          <input class="nav-radio" type="radio" name="nav" id="nav-1-2">
+          <label class="nav-sub-label" for="nav-1-2">Actividad reciente</label>
+          <input class="nav-radio" type="radio" name="nav" id="nav-1-3">
+          <label class="nav-sub-label" for="nav-1-3">Notificaciones</label>
+        </div>
       </div>
-    </details>
+    </div>
 
-    <details class="nav-item">
-      <summary class="nav-summary">
+    <!-- Analytics -->
+    <div class="nav-item">
+      <input class="nav-toggle" type="checkbox" id="toggle-2">
+      <label class="nav-summary" for="toggle-2">
         Analytics
         <i class="nav-arrow">▼</i>
-      </summary>
+      </label>
       <div class="nav-sub">
-        <input class="nav-radio" type="radio" name="nav" id="nav-2-1">
-        <label class="nav-sub-label" for="nav-2-1">Métricas</label>
-
-        <input class="nav-radio" type="radio" name="nav" id="nav-2-2">
-        <label class="nav-sub-label" for="nav-2-2">Reportes</label>
-
-        <input class="nav-radio" type="radio" name="nav" id="nav-2-3">
-        <label class="nav-sub-label" for="nav-2-3">Exportar datos</label>
+        <div class="nav-sub-inner">
+          <input class="nav-radio" type="radio" name="nav" id="nav-2-1">
+          <label class="nav-sub-label" for="nav-2-1">Métricas</label>
+          <input class="nav-radio" type="radio" name="nav" id="nav-2-2">
+          <label class="nav-sub-label" for="nav-2-2">Reportes</label>
+          <input class="nav-radio" type="radio" name="nav" id="nav-2-3">
+          <label class="nav-sub-label" for="nav-2-3">Exportar datos</label>
+        </div>
       </div>
-    </details>
+    </div>
 
-    <details class="nav-item">
-      <summary class="nav-summary">
+    <!-- Settings -->
+    <div class="nav-item">
+      <input class="nav-toggle" type="checkbox" id="toggle-3">
+      <label class="nav-summary" for="toggle-3">
         Settings
         <i class="nav-arrow">▼</i>
-      </summary>
+      </label>
       <div class="nav-sub">
-        <input class="nav-radio" type="radio" name="nav" id="nav-3-1">
-        <label class="nav-sub-label" for="nav-3-1">Perfil</label>
-
-        <input class="nav-radio" type="radio" name="nav" id="nav-3-2">
-        <label class="nav-sub-label" for="nav-3-2">Seguridad</label>
-
-        <input class="nav-radio" type="radio" name="nav" id="nav-3-3">
-        <label class="nav-sub-label" for="nav-3-3">Preferencias</label>
+        <div class="nav-sub-inner">
+          <input class="nav-radio" type="radio" name="nav" id="nav-3-1">
+          <label class="nav-sub-label" for="nav-3-1">Perfil</label>
+          <input class="nav-radio" type="radio" name="nav" id="nav-3-2">
+          <label class="nav-sub-label" for="nav-3-2">Seguridad</label>
+          <input class="nav-radio" type="radio" name="nav" id="nav-3-3">
+          <label class="nav-sub-label" for="nav-3-3">Preferencias</label>
+        </div>
       </div>
-    </details>
+    </div>
 
   </aside>
 
