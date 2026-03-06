@@ -81,22 +81,13 @@
       /* z-index sólo necesario si se superpone algo encima; aquí es innecesario */
     }
 
-    .logo-placeholder {
+    .logo-img {
       width: 64px;
       height: 64px;
-      background-color: #e5e7eb;
-      border: 2px dashed #9ca3af;
+      object-fit: contain;
       border-radius: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       margin-right: 16px;
       flex-shrink: 0;
-    }
-
-    .logo-text {
-      color: #6b7280;
-      font-size: 0.75rem;
     }
 
     .header-title {
@@ -332,9 +323,7 @@
 
   <!-- Header: grid-area "header" -->
   <header class="header">
-    <div class="logo-placeholder" aria-hidden="true">
-      <span class="logo-text">LOGO</span>
-    </div>
+    <img class="logo-img" src="./Assets/header-logo.png" alt="Logo">
     <h1 class="header-title neon-text">Neon Dashboard</h1>
   </header>
 
