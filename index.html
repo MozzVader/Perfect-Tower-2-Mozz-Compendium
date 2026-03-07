@@ -145,11 +145,26 @@
       background: transparent;
       color: white;
       font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-      font-size: 0.95rem;
+      font-weight: 700;
+      font-size: 1.05rem;
       cursor: pointer;
       user-select: none;
       transition: background-color 0.25s ease;
+    }
+
+    /* Icono placeholder — cuadrado redondeado a la izquierda del texto */
+    .nav-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+    }
+
+    /* Texto del menú ocupa el espacio restante */
+    .nav-label-text {
+      flex: 1;
     }
 
     .nav-summary:hover {
@@ -317,7 +332,8 @@
     <div class="nav-item">
       <input class="nav-toggle" type="checkbox" id="toggle-1">
       <label class="nav-summary" for="toggle-1">
-        Blueprints
+        <span class="nav-icon"></span>
+        <span class="nav-label-text">Blueprints</span>
         <i class="nav-arrow">▼</i>
       </label>
       <div class="nav-sub">
@@ -336,7 +352,8 @@
     <div class="nav-item">
       <input class="nav-toggle" type="checkbox" id="toggle-2">
       <label class="nav-summary" for="toggle-2">
-        Analytics
+        <span class="nav-icon"></span>
+        <span class="nav-label-text">Analytics</span>
         <i class="nav-arrow">▼</i>
       </label>
       <div class="nav-sub">
@@ -355,7 +372,8 @@
     <div class="nav-item">
       <input class="nav-toggle" type="checkbox" id="toggle-3">
       <label class="nav-summary" for="toggle-3">
-        Settings
+        <span class="nav-icon"></span>
+        <span class="nav-label-text">Settings</span>
         <i class="nav-arrow">▼</i>
       </label>
       <div class="nav-sub">
