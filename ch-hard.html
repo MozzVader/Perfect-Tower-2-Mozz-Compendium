@@ -195,22 +195,23 @@
 
     .code-textarea {
       flex: 1;
-      min-height: 72px;
       background: rgba(0, 0, 0, 0.3);
       border: 1px dashed rgba(200, 200, 200, 0.35);
       border-radius: 0;
       color: rgba(255, 255, 255, 0.85);
       font-family: 'Courier New', monospace;
       font-size: 0.78rem;
-      padding: 10px 12px;
+      padding: 0 12px;
       resize: none;
       outline: none;
       cursor: default;
       user-select: text;
-    }
-
-    .code-textarea:focus {
-      border-color: rgba(200, 200, 200, 0.35);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      white-space: nowrap;
+      height: 44px;
+      line-height: 44px;
     }
 
     .copy-btn {
@@ -319,7 +320,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -331,7 +332,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -343,7 +344,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly>asdasdasdasd</textarea>
+          <div class="code-textarea">asdasdasdasd</div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -355,7 +356,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -367,7 +368,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -379,7 +380,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -394,7 +395,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -406,7 +407,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -418,7 +419,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -430,7 +431,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -442,7 +443,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -454,7 +455,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -469,7 +470,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -481,7 +482,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -493,7 +494,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -505,7 +506,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -517,7 +518,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -529,7 +530,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -544,7 +545,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -556,7 +557,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -568,7 +569,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -580,7 +581,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -592,7 +593,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -604,7 +605,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -619,7 +620,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -631,7 +632,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -643,7 +644,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -655,7 +656,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -667,7 +668,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -679,7 +680,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -694,7 +695,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -706,7 +707,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -718,7 +719,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -730,7 +731,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -742,7 +743,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -754,7 +755,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -769,7 +770,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -781,7 +782,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -793,7 +794,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -805,7 +806,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -817,7 +818,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -829,7 +830,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -844,7 +845,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -856,7 +857,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -868,7 +869,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -880,7 +881,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -892,7 +893,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -904,7 +905,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -919,7 +920,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -931,7 +932,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -943,7 +944,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -955,7 +956,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -967,7 +968,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -979,7 +980,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -994,7 +995,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1006,7 +1007,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1018,7 +1019,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1030,7 +1031,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1042,7 +1043,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1054,7 +1055,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1069,7 +1070,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1081,7 +1082,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1093,7 +1094,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1105,7 +1106,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1117,7 +1118,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1129,7 +1130,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1144,7 +1145,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1156,7 +1157,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1168,7 +1169,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1180,7 +1181,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1192,7 +1193,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1204,7 +1205,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1219,7 +1220,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1231,7 +1232,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1243,7 +1244,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1255,7 +1256,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1267,7 +1268,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1279,7 +1280,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1294,7 +1295,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1306,7 +1307,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1318,7 +1319,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1330,7 +1331,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1342,7 +1343,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1354,7 +1355,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1369,7 +1370,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1381,7 +1382,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1393,7 +1394,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1405,7 +1406,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1417,7 +1418,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1429,7 +1430,7 @@
         <p class="challenge-line">Linea 2</p>
         <div class="import-label">Import Code</div>
         <div class="code-row">
-          <textarea class="code-textarea" readonly></textarea>
+          <div class="code-textarea"></div>
           <button class="copy-btn" onclick="copyCode(this)" title="Copy to clipboard">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1456,7 +1457,7 @@
 
     function copyCode(btn) {
       const textarea = btn.previousElementSibling;
-      const text = textarea.value;
+      const text = textarea.textContent;
       if (!text.trim()) return;
       navigator.clipboard.writeText(text).then(() => {
         const original = btn.innerHTML;
