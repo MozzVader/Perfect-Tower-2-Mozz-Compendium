@@ -248,13 +248,15 @@
       color: white;
     }
 
-    .nav-radio:checked + .nav-sub-label {
+    .nav-radio:checked + .nav-sub-label,
+    .nav-sub-label.nav-sub-active {
       background-color: rgba(255, 255, 255, 0.22);
       color: white;
       font-weight: 600;
     }
 
-    .nav-radio:checked + .nav-sub-label::before {
+    .nav-radio:checked + .nav-sub-label::before,
+    .nav-sub-label.nav-sub-active::before {
       opacity: 1;
     }
 
@@ -336,9 +338,9 @@
       <div class="nav-sub">
         <div class="nav-sub-inner">
           <input class="nav-radio" type="radio" name="nav" id="nav-1-1">
-          <a href="ch-easy.html" target="content-frame" class="nav-sub-label">Challenges Easy</a>
+          <a href="ch-easy.html" target="content-frame" class="nav-sub-label">Challenges Easymode</a>
           <input class="nav-radio" type="radio" name="nav" id="nav-1-2">
-          <a href="ch-hard.html" target="content-frame" class="nav-sub-label">Challenges Hard</a>
+          <a href="ch-hard.html" target="content-frame" class="nav-sub-label">Challenges Hardmode</a>
           <input class="nav-radio" type="radio" name="nav" id="nav-1-3">
           <label class="nav-sub-label" for="nav-1-3">Other BPs</label>
         </div>
@@ -393,6 +395,16 @@
   <main class="main-content">
     <iframe name="content-frame" src="welcome.html"></iframe>
   </main>
+
+  <script>
+    document.querySelectorAll('.nav-sub-label').forEach(label => {
+      label.addEventListener('click', () => {
+        document.querySelectorAll('.nav-sub-label').forEach(l => l.classList.remove('nav-sub-active'));
+        label.classList.add('nav-sub-active');
+      });
+    });
+  </script>
+
 
 </body>
 </html>
