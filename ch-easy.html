@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* ─── Sticky button grid ──────────────────────────────────────────────── */
+    .btn-grid-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: ;
+      backdrop-filter: blur(6px);
+      padding: 12px 24px;
+      border-bottom: ;
+    }
+
+    .btn-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      width: 100%;
+    }
+
+    .btn-biome {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-left: 3px solid #0891b2;
+      border-radius: 0;
+      padding: 0;
+      height: 44px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-biome:hover { background: rgba(0, 0, 0, 0.75); }
+
+    .btn-biome.active {
+      background: rgba(0, 0, 0, 0.75);
+      color: #fbbf24;
+    }
+
+    /* ─── Page content ────────────────────────────────────────────────────── */
+    .page-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ─── Welcome card ────────────────────────────────────────────────────── */
+    .content-card {
+      text-align: center;
+      padding: 32px;
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1rem;
+      width: 100%;
+    }
+
+    .content-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      text-shadow:
+        0 0 5px  rgba(255, 255, 255, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.3),
+        0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .content-text {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ─── Biome sections ──────────────────────────────────────────────────── */
+    .biome-section {
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-left: 3px solid #0891b2;
+      border-radius: 0.5rem;
+      padding: 32px;
+      min-height: 200px;
+      scroll-margin-top: 130px;
+    }
+
+    .biome-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      text-shadow:
+        0 0 5px  rgba(255, 255, 255, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.15);
+    }
+
+    .biome-placeholder {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.9rem;
+    }
+
+    /* ─── Back to top ─────────────────────────────────────────────────────── */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-left: 3px solid #0891b2;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      z-index: 200;
+    }
+
+    .back-to-top:hover { background: rgba(0, 0, 0, 0.75); }
+
+    .back-to-top svg {
+      width: 14px;
+      height: 14px;
+      stroke: #0891b2;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky button grid -->
+  <div class="btn-grid-wrapper" id="top">
+    <div class="btn-grid">
+      <a class="btn-biome active" href="#forest">Forest</a>
+      <a class="btn-biome" href="#desert">Desert</a>
+      <a class="btn-biome" href="#winter">Winter</a>
+      <a class="btn-biome" href="#underground">Underground</a>
+      <a class="btn-biome" href="#volcano">Volcano</a>
+      <a class="btn-biome" href="#high-mountain">High Mountain</a>
+      <a class="btn-biome" href="#jungle">Jungle</a>
+      <a class="btn-biome" href="#metallic-ruins">Metallic Ruins</a>
+      <a class="btn-biome" href="#beach">Beach</a>
+      <a class="btn-biome" href="#ocean">Ocean</a>
+      <a class="btn-biome" href="#neutral">Neutral</a>
+      <a class="btn-biome" href="#dark-realm">Dark Realm</a>
+      <a class="btn-biome" href="#heaven">Heaven</a>
+      <a class="btn-biome" href="#universe">Universe</a>
+      <a class="btn-biome" href="#chaos">Chaos</a>
+    </div>
+  </div>
+
+  <div class="page-content">
+
+    <div class="content-card">
+      <h2 class="content-title">Bienvenido al Dashboard</h2>
+      <p class="content-text">Este es el área principal de contenido. La barra de menú está posicionada debajo del encabezado.</p>
+    </div>
+
+    <div class="biome-section" id="forest">
+      <h3 class="biome-title">Forest</h3>
+      <p class="biome-placeholder">Contenido de Forest...</p>
+    </div>
+    <div class="biome-section" id="desert">
+      <h3 class="biome-title">Desert</h3>
+      <p class="biome-placeholder">Contenido de Desert...</p>
+    </div>
+    <div class="biome-section" id="winter">
+      <h3 class="biome-title">Winter</h3>
+      <p class="biome-placeholder">Contenido de Winter...</p>
+    </div>
+    <div class="biome-section" id="underground">
+      <h3 class="biome-title">Underground</h3>
+      <p class="biome-placeholder">Contenido de Underground...</p>
+    </div>
+    <div class="biome-section" id="volcano">
+      <h3 class="biome-title">Volcano</h3>
+      <p class="biome-placeholder">Contenido de Volcano...</p>
+    </div>
+    <div class="biome-section" id="high-mountain">
+      <h3 class="biome-title">High Mountain</h3>
+      <p class="biome-placeholder">Contenido de High Mountain...</p>
+    </div>
+    <div class="biome-section" id="jungle">
+      <h3 class="biome-title">Jungle</h3>
+      <p class="biome-placeholder">Contenido de Jungle...</p>
+    </div>
+    <div class="biome-section" id="metallic-ruins">
+      <h3 class="biome-title">Metallic Ruins</h3>
+      <p class="biome-placeholder">Contenido de Metallic Ruins...</p>
+    </div>
+    <div class="biome-section" id="beach">
+      <h3 class="biome-title">Beach</h3>
+      <p class="biome-placeholder">Contenido de Beach...</p>
+    </div>
+    <div class="biome-section" id="ocean">
+      <h3 class="biome-title">Ocean</h3>
+      <p class="biome-placeholder">Contenido de Ocean...</p>
+    </div>
+    <div class="biome-section" id="neutral">
+      <h3 class="biome-title">Neutral</h3>
+      <p class="biome-placeholder">Contenido de Neutral...</p>
+    </div>
+    <div class="biome-section" id="dark-realm">
+      <h3 class="biome-title">Dark Realm</h3>
+      <p class="biome-placeholder">Contenido de Dark Realm...</p>
+    </div>
+    <div class="biome-section" id="heaven">
+      <h3 class="biome-title">Heaven</h3>
+      <p class="biome-placeholder">Contenido de Heaven...</p>
+    </div>
+    <div class="biome-section" id="universe">
+      <h3 class="biome-title">Universe</h3>
+      <p class="biome-placeholder">Contenido de Universe...</p>
+    </div>
+    <div class="biome-section" id="chaos">
+      <h3 class="biome-title">Chaos</h3>
+      <p class="biome-placeholder">Contenido de Chaos...</p>
+    </div>
+
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    Back to top
+  </button>
+
+  <script>
+    const buttons = document.querySelectorAll('.btn-biome');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

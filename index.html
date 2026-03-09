@@ -14,16 +14,6 @@
       box-sizing: border-box;
     }
 
-    /* ─── Layout raíz con CSS Grid ──────────────────────────────────────────
-       Se define un grid de 2 columnas × 2 filas:
-         - Fila 1 (header): ocupa ambas columnas
-         - Fila 2: columna 1 → sidebar | columna 2 → contenido principal
-       Ventajas frente al enfoque anterior:
-         · Sin position: fixed/absolute en el header/sidebar
-         · Sin z-index frágiles entre capas de stacking context distintos
-         · El browser maneja el apilamiento de forma predecible
-         · overflow: hidden ya no es necesario en body
-    ──────────────────────────────────────────────────────────────────────── */
     html, body {
       height: 100%;
     }
@@ -34,26 +24,23 @@
       background-size: 400% 400%;
       animation: gradientAnimation 15s ease infinite;
 
-      /* Grid principal: header arriba, sidebar + main abajo */
       display: grid;
-      grid-template-rows: 96px 1fr;   /* header fijo en altura, resto flexible */
-      grid-template-columns: 208px 1fr; /* sidebar fijo en ancho, resto flexible */
-      grid-template-areas:
-        "header  header"
-        "sidebar main";
+      grid-template-rows: 1fr;
+      grid-template-columns: 280px 1fr;
+      grid-template-areas: "sidebar main";
       height: 100vh;
-      overflow: hidden; /* sólo aquí para evitar scroll en el viewport */
+      overflow: hidden;
     }
 
-    /* Efecto de ruido como pseudo-elemento en html para no interferir con el grid */
+    /* Noise texture overlay */
     html::before {
       content: "";
-      position: fixed; /* fixed sobre html es seguro y no crea z-index wars */
+      position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       opacity: 0.05;
       pointer-events: none;
-      z-index: 0; /* debajo de todo el contenido */
+      z-index: 0;
     }
 
     @keyframes gradientAnimation {
@@ -62,69 +49,78 @@
       100% { background-position: 0% 50%; }
     }
 
-    .neon-text {
-      text-shadow:
-        0 0 5px  rgba(255, 255, 255, 0.5),
-        0 0 10px rgba(255, 255, 255, 0.3),
-        0 0 15px rgba(255, 255, 255, 0.2);
-    }
-
-    /* ─── Header ──────────────────────────────────────────────────────────── */
-    .header {
-      grid-area: header;
+    /* ─── Logo area at top of sidebar ───────────────────────────────────── */
+    .sidebar-logo {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      padding: 0 24px;
-      backdrop-filter: blur(4px);
-      background-color: rgba(0, 0, 0, 0.2);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      /* z-index sólo necesario si se superpone algo encima; aquí es innecesario */
+      padding: 24px 16px 20px;
     }
 
     .logo-img {
-      width: 64px;
-      height: 64px;
+      width: 100%;
+      max-width: 248px;
+      height: auto;
       object-fit: contain;
-      border-radius: 0.75rem;
-      margin-right: 16px;
-      flex-shrink: 0;
+      border-radius: 8px;
     }
 
-    .header-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
+    /* Spacer that pushes nav to vertical center */
+    .nav-spacer {
+      display: none;
     }
 
     /* ─── Sidebar ─────────────────────────────────────────────────────────── */
     .sidebar {
       grid-area: sidebar;
       backdrop-filter: blur(4px);
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.35);
       border-right: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 16px;
+      padding: 0;
       display: flex;
       flex-direction: column;
-      overflow-y: auto; /* scroll interno si el contenido del sidebar crece */
+      overflow-y: auto;
+      position: relative;
     }
 
-    /* ─── Menú desplegable CSS-only con checkboxes ───────────────────────────
-       Por qué no <details>:
-         <details> usa display:none en el contenido cerrado → el elemento
-         no existe en el flujo visual → las transiciones CSS nunca se
-         ejecutan porque no hay nada que animar.
+    /* Nav menu: top anchored so the title sits just above the vertical center */
+    .nav-menu {
+      position: absolute;
+      top: calc(50% - 90px); /* adjusted for title + buttons */
+      width: 100%;
+      padding: 0;
+    }
 
-       Solución: checkbox oculto + label como botón.
-         · El contenido (.nav-sub) SIEMPRE está en el DOM
-         · Cuando el checkbox está :checked, se expande con transición real
-         · Un segundo grupo de radio inputs maneja el ítem activo
-    ──────────────────────────────────────────────────────────────────────── */
+    /* ─── Nav section title (COMMUNITY style) ───────────────────────────── */
+    .nav-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 16px;
+      margin-bottom: 12px;
+    }
 
+    .nav-title-line {
+      flex: 1;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .nav-title-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+      white-space: nowrap;
+    }
+
+    /* ─── Nav items ───────────────────────────────────────────────────────── */
     .nav-item {
-      margin-bottom: 4px;
+      margin-bottom: 1px;
     }
 
-    /* Checkbox toggle — oculto visualmente, siempre en el DOM */
     .nav-toggle {
       position: absolute;
       opacity: 0;
@@ -133,16 +129,14 @@
       pointer-events: none;
     }
 
-    /* Label = botón principal del menú */
+    /* Main menu button */
     .nav-summary {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
+      gap: 10px;
       width: 100%;
-      padding: 12px 16px;
-      border-radius: 0.375rem;
-      background: transparent;
+      padding: 10px 16px;
+      background: rgba(0, 0, 0, 0.6);
       color: white;
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
@@ -150,26 +144,29 @@
       cursor: pointer;
       user-select: none;
       transition: background-color 0.25s ease;
+      position: relative;
+      border-left: 3px solid #f97316;
     }
 
-    /* Icono placeholder — cuadrado redondeado a la izquierda del texto */
+    /* Icon: small square like the game uses */
     .nav-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
       flex-shrink: 0;
+      object-fit: contain;
+      opacity: 0.85;
     }
 
-    /* Texto del menú ocupa el espacio restante */
     .nav-label-text {
       flex: 1;
     }
 
     .nav-summary:hover {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: rgba(0, 0, 0, 0.75);
     }
 
-    /* Flecha: rota cuando el checkbox está checked */
+    /* Arrow indicator */
     .nav-arrow {
       display: inline-block;
       font-style: normal;
@@ -183,21 +180,20 @@
       transform: rotate(180deg);
     }
 
-    /* Highlight del label cuando está abierto */
+    /* Active/open state */
     .nav-toggle:checked ~ .nav-summary {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: rgba(0, 0, 0, 0.75);
       font-weight: 600;
     }
 
-    /* ── Submenú: animado con @keyframes ─────────────────────────────────── */
-
+    /* ── Submenu animation ──────────────────────────────────────────────── */
     @keyframes slideDown {
       from { max-height: 0;     opacity: 0; transform: translateY(-6px); }
-      to   { max-height: 200px; opacity: 1; transform: translateY(0);    }
+      to   { max-height: 300px; opacity: 1; transform: translateY(0);    }
     }
 
     @keyframes slideUp {
-      from { max-height: 200px; opacity: 1; transform: translateY(0);    }
+      from { max-height: 300px; opacity: 1; transform: translateY(0);    }
       to   { max-height: 0;     opacity: 0; transform: translateY(-6px); }
     }
 
@@ -216,7 +212,7 @@
       animation: slideDown 0.35s ease forwards;
     }
 
-    /* ── Radio inputs para estado activo ─────────────────────────────────── */
+    /* ── Radio state for active sub-items ───────────────────────────────── */
     .nav-radio {
       position: absolute;
       opacity: 0;
@@ -237,6 +233,7 @@
       cursor: pointer;
       transition: background-color 0.2s ease, color 0.2s ease;
       position: relative;
+      text-decoration: none;
     }
 
     .nav-sub-label::before {
@@ -274,14 +271,24 @@
       display: block;
     }
 
+    /* ─── Scrollbar styling for sidebar ─────────────────────────────────── */
+    .sidebar::-webkit-scrollbar {
+      width: 3px;
+    }
+    .sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+    }
+
     /* ─── Responsive ──────────────────────────────────────────────────────── */
     @media (max-width: 768px) {
       body {
-        /* En móvil: header arriba, main en el medio, sidebar como barra inferior */
-        grid-template-rows: 96px 1fr 64px;
+        grid-template-rows: 1fr 64px;
         grid-template-columns: 1fr;
         grid-template-areas:
-          "header"
           "main"
           "sidebar";
       }
@@ -289,59 +296,51 @@
       .sidebar {
         flex-direction: row;
         border-right: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         padding: 8px;
         overflow-x: auto;
         overflow-y: hidden;
       }
-
-      .sidebar-button {
-        margin-bottom: 0;
-        margin-right: 8px;
-        padding: 8px 12px;
-        font-size: 0.875rem;
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
-
-      .content-title  { font-size: 1.5rem; }
-      .content-text   { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header: grid-area "header" -->
-  <header class="header">
-    <a href="index.html"><img class="logo-img" src="./Assets/header-logo.png" alt="Logo"></a>
-    <h1 class="header-title neon-text">The Perfect Tower 2 - Mozz Compendium</h1>
-  </header>
-
-  <!-- Sidebar: grid-area "sidebar" -->
-  <!-- 
-    Menú 100% CSS-only:
-    · <details> + <summary> manejan open/close sin JS
-    · Radio inputs ocultos manejan el ítem activo sin JS
-    · Todos en el mismo name="nav" para que solo uno esté activo a la vez
-  -->
+  <!-- Sidebar -->
   <aside class="sidebar" aria-label="Navegación principal">
 
-    <!-- Dashboard -->
+    <!-- Logo at top -->
+    <div class="sidebar-logo">
+      <a href="index.html"><img class="logo-img" src="./assets/logo-big.png" alt="Logo"></a>
+    </div>
+
+    <div class="nav-spacer"></div>
+
+    <div class="nav-menu">
+
+    <!-- Section title -->
+    <div class="nav-title">
+      <span class="nav-title-line"></span>
+      <span class="nav-title-text">Compendium</span>
+      <span class="nav-title-line"></span>
+    </div>
+
+    <!-- Blueprints -->
     <div class="nav-item">
       <input class="nav-toggle" type="checkbox" id="toggle-1">
       <label class="nav-summary" for="toggle-1">
-        <img class="nav-icon" src="./Assets/module-icon.png" alt="Blueprints icon">
+        <img class="nav-icon" src="./assets/module-icon.png" alt="Blueprints icon">
         <span class="nav-label-text">Blueprints</span>
         <i class="nav-arrow">▼</i>
       </label>
       <div class="nav-sub">
         <div class="nav-sub-inner">
           <input class="nav-radio" type="radio" name="nav" id="nav-1-1">
-          <a href="Ricky.html" target="content-frame" class="nav-sub-label">Resumen</a>
+          <a href="ch-easy.html" target="content-frame" class="nav-sub-label">Challenges Easy</a>
           <input class="nav-radio" type="radio" name="nav" id="nav-1-2">
-          <label class="nav-sub-label" for="nav-1-2">Actividad reciente</label>
+          <a href="ch-hard.html" target="content-frame" class="nav-sub-label">Challenges Hard</a>
           <input class="nav-radio" type="radio" name="nav" id="nav-1-3">
-          <label class="nav-sub-label" for="nav-1-3">Notificaciones</label>
+          <label class="nav-sub-label" for="nav-1-3">Other BPs</label>
         </div>
       </div>
     </div>
@@ -350,8 +349,8 @@
     <div class="nav-item">
       <input class="nav-toggle" type="checkbox" id="toggle-2">
       <label class="nav-summary" for="toggle-2">
-        <img class="nav-icon" src="https://placehold.co/40x40/ffffff/9333ea?text=A" alt="Analytics icon">
-        <span class="nav-label-text">Analytics</span>
+        <img class="nav-icon" src="https://placehold.co/32x32/1a1a1a/f97316?text=A" alt="Analytics icon">
+        <span class="nav-label-text">AI Scripts</span>
         <i class="nav-arrow">▼</i>
       </label>
       <div class="nav-sub">
@@ -370,7 +369,7 @@
     <div class="nav-item">
       <input class="nav-toggle" type="checkbox" id="toggle-3">
       <label class="nav-summary" for="toggle-3">
-        <img class="nav-icon" src="https://placehold.co/40x40/ffffff/9333ea?text=S" alt="Settings icon">
+        <img class="nav-icon" src="https://placehold.co/32x32/1a1a1a/f97316?text=S" alt="Settings icon">
         <span class="nav-label-text">Settings</span>
         <i class="nav-arrow">▼</i>
       </label>
@@ -386,10 +385,11 @@
       </div>
     </div>
 
+    </div>
+
   </aside>
 
-  <!-- Main: grid-area "main" -->
-  <!-- El iframe carga el contenido de cada submenú sin recargar header ni sidebar -->
+  <!-- Main -->
   <main class="main-content">
     <iframe name="content-frame" src="welcome.html"></iframe>
   </main>
